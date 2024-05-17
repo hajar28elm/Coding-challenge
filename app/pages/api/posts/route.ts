@@ -29,6 +29,9 @@ export const GET = async () =>{
 export async function create(formData: FormData){
    const title = formData.get("title") as string;
    const content = formData.get("content") as string;
+   if(!title.trim() || !content.trim()){
+      return;
+   }
    await prisma.post.create({
       data:{
          title: title,
@@ -36,4 +39,33 @@ export async function create(formData: FormData){
       }
    });
    revalidatePath("/");
+}
+export async function update(formData:FormData){
+     const inputId = formData.get("inputId") as string
+     const title = formData.get("title") as string
+     const content = formData.get("content") as string
+     await prisma.post.update({
+      where:{
+       id:inputId
+    },
+      data:{
+       title: title,
+       content: content
+
+      }
+})
+
+   revalidatePath("/")
+}
+
+export async function deleteP(formData: FormData){
+ const inputId = formData.get("inputId") as string
+ await prisma.post.delete({
+  where: {
+       id: inputId,
+  },
+ }
+ )
+ revalidatePath("/")
+
 }

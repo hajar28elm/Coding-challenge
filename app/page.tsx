@@ -3,12 +3,15 @@ import Navbar from "./components/navbar/Navbar";
 import AddPost from "./components/posts/AddPost";
 import CartList from "./components/posts/CardList";
 import { prisma } from "@/utils/prisma";
-async function getData(){
+import { postType } from "@/types/postType";
+async function getData(): Promise<postType[]>{
   try{
     const posts =  await prisma.post.findMany({
      select:{
       title: true,
       content: true,
+      id:true,
+      
    },
    orderBy: {
        created_at: "desc",
@@ -18,29 +21,23 @@ async function getData(){
     return posts;
    
 }catch(error){
- console.log(error)
- return new NextResponse(
-  JSON.stringify({message: "Something went wrong"})
- );
-
-}
+  console.error(error);
+  throw new Error('Something went wrong');}
 }
 
 export default async function Home() {
   const posts = await getData();
-  const data = {
-       "id": posts.id
-       
-  }
   return (
     <div>
       <Navbar/>
-    <div className="w-screen py-20 flex justify-center flex-col item-center">
-      <span className="text-3xl font-extrabold uppercase">Welcome to our blog</span>
+    <div className="container py-5 d-flex flex-column align-items-center">
+      <span className="h1 font-weight-bold text-uppercase">Welcome to our blog</span>
            <CartList posts={posts}/>
            <AddPost/>
            
     </div>
     </div>
+  
+  
   );
 }
