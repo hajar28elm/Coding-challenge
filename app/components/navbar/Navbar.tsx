@@ -1,12 +1,15 @@
 import React from "react";
+import Link from 'next/link';
 
 const Navbar = () => {
-    return (
-        <nav style={navStyle}>
-            <div style={leftStyle}>Navbar</div>
-            <div style={rightStyle}><a href="/pages/api/posts">Add Post</a></div>
-        </nav>
-    );
+ return (
+  <nav style={navStyle}>
+    <div style={leftStyle}>Navbar</div>
+    <div style={rightStyle}>
+    <Link href="/components/posts/AddPost">Add Post</Link>
+    </div>
+  </nav>
+);
 };
 
 const navStyle: React.CSSProperties = {

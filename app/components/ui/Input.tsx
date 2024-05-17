@@ -3,8 +3,9 @@ interface inputProps{
  type: string;
  placeholder?: string;
  value?: string;
+ onChange?: () => void;
 }
-const Input = ({name, type, placeholder, value}: inputProps) => {
+const Input = ({name, type, placeholder, value, onChange}: inputProps) => {
  return(
   <>
     <input className="w-full p-2 border border-gray-200"

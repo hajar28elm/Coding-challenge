@@ -1,8 +1,11 @@
 import React from "react";
-import { Post } from '@prisma/client';
+import Button from "../ui/Button";
+import UpdatePost from "./UpdatePost";
+import DeletePost from "./DeletePost";
+import { postType } from "@/types/postType";
 
 interface postProps{
-  posts: Post[]
+  posts: postType[]
 }
 const CartList = ({posts}: postProps) =>{
     return(
@@ -12,10 +15,13 @@ const CartList = ({posts}: postProps) =>{
      <div className="card-body">
     <h5 className="card-title">{post.title}</h5>
     <p className="card-text">{post.content}</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
+    {/* <a href="#" className="btn btn-primary">Update</a> */}
+    <UpdatePost post={post}/>
+    <DeletePost post={post}/>
   </div>
 </div>))}
 </>
     )
 }
 export default CartList;
+
