@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/Navbar";
 import { postType } from "@/types/postType";
 import AddPost from "./components/posts/AddPost";
 import PaginatedPosts from "./components/posts/PaginatedPost";
+import Footer from "./components/footer/footer";
 
 const Home: React.FC = () => {
   const [posts, setPosts] = useState<postType[]>([]);
@@ -26,7 +27,6 @@ const Home: React.FC = () => {
     fetchData();
   }, []);
 
-  // Function to update search results
   const handleSearchResults = (results: postType[]) => {
     setSearchResults(results);
   };
@@ -49,6 +49,7 @@ const Home: React.FC = () => {
           </>
         )}
       </div>
+      <Footer/>
     </div>
   );
 };
