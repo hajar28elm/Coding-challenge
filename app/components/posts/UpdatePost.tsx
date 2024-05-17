@@ -22,23 +22,24 @@ const UpdatePost = ({ post}: {post:postType}) => {
        <div>
           <Button
             onClick={handleUpdate}
-            text="handleEdit"
+            text=""
             actionButton
+            icon="bi bi-pencil-fill"
+            iconSize="32px"
+            iconColor="black"
           />
           {
             updatePost?(
              <Form action={update}  onSubmit={handleSubmit}>
                 <Input name="inputId" value={post.id} type="hidden" />
-                <Input name="title" type="text"  />
-                <Input name="content" type="text"  />
-             <Button
-                actionButton
-                 type="submit"
-                 text="update"
-              /> 
+                <Input name="title" type="text" placeholder="New title" />
+                <Input name="content" type="text" placeholder="New content" />
                 <Button
                   type="submit"
-                  text="save"
+                  text=""
+                  icon="bi bi-floppy-fill"
+                   iconSize="32px"
+                    iconColor="black"
                 />
 
               </Form>

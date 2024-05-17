@@ -18,8 +18,12 @@ const DeletePost = ({post}: {post:postType}) => {
        />
        <Button
        actionButton
-       text="delete"
+       text=""
        type="submit"
+       icon="bi bi-trash3-fill"
+       iconSize="32px"
+       iconColor="red"
+      
        />
 
     </Form>
