@@ -6,11 +6,11 @@ const AddPost = () =>{
   return(
    <Form action={create} className="w-1/2 m-auto">
        <div className="flex">
-        {/* <Input name={"id"} type={"text"} placeholder="put the id"/> */}
-        <Input name={"title"} type={"text"} placeholder="Title of the post"/>
-        <Input name={"content"} type={"text"} placeholder="Content of the post"/>
-        <Button text="Create" type="submit" icon="bi bi-trash"/>
-        {/* <Button text="Edit" icon="bi bi-pencil" /> */}
+        
+        <Input name={"title"} type={"text"} placeholder="Title of the post" />
+        <Input name={"content"} type={"text"} placeholder="Content of the post"  />
+        <Button text="" type="submit" icon="bi bi-plus-circle-fill" iconSize="32px" iconColor="black"/>
+       
 
        </div>
    </Form>
